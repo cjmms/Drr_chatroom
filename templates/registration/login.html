@@ -1,0 +1,7 @@
+<!-- templates/registration/login.html -->
+<h2>Login</h2>
+<form method="post">
+  {% csrf_token %}    <!-- for security -->
+  {{ form.as_p }}     <!-- output content between paragraph tags -->
+  <button type="submit">Login</button>
+</form>
