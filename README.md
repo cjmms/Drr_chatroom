@@ -13,3 +13,5 @@ Features:
 login   URL: http://127.0.0.1:8000/index/login/
 
 admin   URL: http://127.0.0.1:8000/admin/
+
+home page URL: http://127.0.0.1:8000
