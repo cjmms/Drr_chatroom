@@ -1,4 +1,7 @@
 # Drr_chatroom
 
-Dec 1st:
-  test
+This is a Web Project for Purdue CS252
+
+Contributors:
+  Xingyu "cjmms" Wang
+  Ruoyu "LuckyDog666"Song
