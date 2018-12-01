@@ -10,4 +10,6 @@ Ruoyu "LuckyDog666"Song
 
 
 Features:
-login
+login   URL: http://127.0.0.1:8000/chatroom/login/
+
+admin   URL: http://127.0.0.1:8000/admin/
