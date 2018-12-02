@@ -119,6 +119,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/'    # once a user logged in, redirect the user to this route
+LOGIN_REDIRECT_URL = 'home'    # once a user logged in, redirect the user to this route
+LOGOUT_REDIRECT_URL = 'home'
+
 
 
