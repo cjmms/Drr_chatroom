@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels',
+    'chatroom',
+    'signup.apps.SignupConfig'
 ]
 
 MIDDLEWARE = [
@@ -132,4 +135,14 @@ LOGIN_REDIRECT_URL = 'home'    # once a user logged in, redirect the user to thi
 LOGOUT_REDIRECT_URL = 'home'
 
 
+#channel settings
+ASGI_APPLICATION = "drr_chatroom.routing.application"
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('redis', 6379)],
+        },
+    }
+}
 
