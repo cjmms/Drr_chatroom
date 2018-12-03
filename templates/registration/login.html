@@ -1,11 +1,13 @@
 
 
 <!-- templates/registration/login.html -->
-{% extends 'index.html' %}
+{% extends 'base.html' %}
+
 
 {% block title %}Login{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="/static/css/test.css">
 <h2>Login</h2>
 <form method="post">
   {% csrf_token %}    <!-- for security -->
