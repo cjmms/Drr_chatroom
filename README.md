@@ -23,7 +23,7 @@ chatroom index page:
 
 
 
-pip install -r requirements.txt
+pip install -r requirement.txt
 
 install docker and then run:
 docker run --name some-redis  -p 6379:6379  -d redis redis-server --appendonly yes
