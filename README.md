@@ -22,8 +22,9 @@ chatroom index page:
           URL: http://127.0.0.1:8000/chat/
 
 
-
-pip install -r requirement.txt
+pip install -U channels
 
 install docker and then run:
-docker run --name some-redis  -p 6379:6379  -d redis redis-server --appendonly yes
+docker run -p 6379:6379 -d redis:2.8
+
+pip3 install channels_redis

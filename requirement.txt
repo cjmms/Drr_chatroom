@@ -1,2 +1,0 @@
-channels==2.0.2
-channels_redis==2.1.1
