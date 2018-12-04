@@ -131,8 +131,8 @@ STATICFILES_DIRS = [
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
 
-LOGIN_REDIRECT_URL = 'home'    # once a user logged in, redirect the user to this route
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/chat/'    # once a user logged in, redirect the user to this route
+LOGOUT_REDIRECT_URL = 'login'
 
 
 #channel settings
