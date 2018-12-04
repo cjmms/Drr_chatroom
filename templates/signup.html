@@ -3,12 +3,20 @@
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" type="text/css" href="/static/css/test.css">
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-  </form>
+<link rel="stylesheet" type="text/css" href="/static/css/signup.css">
+  <main style="margin-left: 40px;"><span style="color: rgb(255, 255, 255); background-color: rgb(209, 72, 65); font-size: 50px; font-family: Courier, serif;">Sign up</span>
+    <form method="post" style="margin-left: 280px;"><input type="hidden" name="csrfmiddlewaretoken" value="wF8JtmhrzC5KSUggIE3219Z47QeEIeh6dVZraH6wySvAYls4iiSvIkRBDtnVqpB0">
+        {% csrf_token %}
+        <p><label for="id_username">Username:</label><input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username" value=""><span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span></p>
+        <p><label for="id_password1">Password:</label><input type="password" name="password1" required="" id="id_password1" value=""></p>
+        <ul>
+            <li><span style="font-family: Tahoma, Geneva, sans-serif;">Your password can&#39;t be too similar to your other personal information.</span></li>
+            <li><span style="font-family: Tahoma,Geneva,sans-serif;">Your password must contain at least 8 characters.</span></li>
+            <li><span style="font-family: Tahoma,Geneva,sans-serif;">Your password can&#39;t be a commonly used password.</span></li>
+            <li><span style="font-family: Tahoma, Geneva, sans-serif;">Your password can&#39;t be entirely numeric.</span></li>
+        </ul>
+        <p><label for="id_password2">Password confirmation:</label><input type="password" name="password2" required="" id="id_password2" value=""><span class="helptext">Enter the same password as before, for verification.</span></p><button type="submit">Sign up</button>
+        </form>        
+</main>
 {% endblock %}
 
