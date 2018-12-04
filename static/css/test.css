@@ -1,3 +1,4 @@
 body {
-    background: white url("/static/images/bg-01.jpg") no-repeat;
+    background: white url("/static/images/purdue.jpg") no-repeat;
+    background-size:cover;
 }

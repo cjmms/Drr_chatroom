@@ -9,7 +9,7 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="f/static/onts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/static/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 <!--===============================================================================================-->
@@ -28,31 +28,32 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
 	<div class="limiter">
+	
+		{% csrf_token %}
 		<div class="container-login100" style="background-image: url('/static/images/bg-01.jpg');">
 			<div class="wrap-login100 p-t-30 p-b-50">
 				<span class="login100-form-title p-b-41">
 					Account Login
 				</span>
 				<form class="login100-form validate-form p-b-33 p-t-5">
-
+				<form method="post">
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="username" placeholder="User name">
-						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+						<input class="input100" label for="id_username" type="text" name="username" autofocus required id = "id_username" placeholder="User name">
+						<span class="focus-input100" type = "text" name="username" data-placeholder="&#xe82a;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="pass" placeholder="Password">
-						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+						<input class="input100" label for="id_password" type="id_password" name="id_password" placeholder="Password">
+						<span class="focus-input100" type = "text" name ="password" data-placeholder="&#xe80f;"></span>
 					</div>
 
 					<div class="container-login100-form-btn m-t-32">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" button type=" submit">
 							Login
 						</button>
 					</div>
-
+				</form>
 				</form>
 			</div>
 		</div>
