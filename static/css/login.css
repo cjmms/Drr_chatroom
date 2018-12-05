@@ -1,4 +1,7 @@
 body {
-    background: white url("/static/images/purdue.jpg") no-repeat;
-    background-size:cover;
+    background: white url("/static/images/purdue.jpg")no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }

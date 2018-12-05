@@ -1,4 +1,7 @@
 body {
-    background: white url("/static/images/signupbk.png") no-repeat;
-    background-size: 1300px 600px;
+    background: white url("/static/images/signupbk.png") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
