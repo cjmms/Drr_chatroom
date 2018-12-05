@@ -27,8 +27,12 @@ urlpatterns = [
     path('test/',TemplateView.as_view(template_name='index.html'), name='test'),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('chat/', include('chat.urls')),
-    url(r'^chat/', include('chat.urls')),
+    #url(r'^chat/', include('chat.urls')),
     #url(r'^admin/', admin.site.urls),
+    #url(r'^$',views.index,name='index'),
+    #url(r'^special/',views.special,name='special'),
+    #url(r'^accounts/',include('accounts.urls')),
+    #url(r'^logout/$', views.user_logout, name='logout'),
 ]
 
 if settings.DEBUG:
