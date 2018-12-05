@@ -14,6 +14,9 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
+STATIC_DIR = os.path.join(BASE_DIR,'static')
+MEDIA_DIR = os.path.join(BASE_DIR,'media')
 
 
 # Quick-start development settings - unsuitable for production
@@ -39,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'channels',
     'chat',
+    'accounts',
     'signup.apps.SignupConfig'
 ]
 
@@ -134,6 +138,10 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
 LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/chat/'    # once a user logged in, redirect the user to this route
 LOGOUT_REDIRECT_URL = 'login'
 
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
+LOGIN_URL = '/accounts/user_login/'
+
 
 #channel settings
 ASGI_APPLICATION = "drr_chatroom.routing.application"
@@ -147,3 +155,6 @@ CHANNEL_LAYERS = {
     }
 }
 
+
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")

@@ -1,0 +1,26 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: wang3695@purdue.edu
+Date: Wed, 05 Dec 2018 00:33:41 -0000
+Message-ID: 
+ <154397002137.16588.17193459124653979220@pal-nat186-26-53.itap.purdue.edu>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/index/reset/MQ/51v-147acbaea1d2ce25a5e0/
+
+Your username, in case you've forgotten: admin
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------
