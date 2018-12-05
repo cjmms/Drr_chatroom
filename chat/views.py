@@ -2,9 +2,14 @@
 from django.shortcuts import render
 from django.utils.safestring import mark_safe
 import json
+from django.http import HttpResponse
+from .models import Room
 
 def index(request):
-    return render(request, 'chat/index.html', {})
+    room_list = Room.objects.all()
+    context = {'room_list': room_list}
+    return render(request, 'chat/index.html', context)
+    #return render(request, 'chat/index.html', {})
 
 def room(request, room_name):
     return render(request, 'chat/room.html', {
