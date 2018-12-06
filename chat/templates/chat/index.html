@@ -24,10 +24,23 @@
       background-color: #f2f2f2;
       padding: 25px;
     }
+
+    .bg-1 {
+    background: #2d2d30;
+    color: #bdbdbd;
+    }
+    .bg-1 h3 {color: #fff;}
+    .bg-1 p {font-style: italic;}
   </style>
 </head>
+
 <body>
 
+    <style>
+        body { background-color: #2d2d30; }
+    </style>
+
+<div class="bg-1">
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -48,19 +61,39 @@
   </div>
 </nav>
 
-<form>
-    <div class="container text-center">
-    <div class="col-xs-4">
-    <label for="ex3">What chat room would you like to enter?</label>
-    <div class="input-group">
-      <input id="room-name-input" type="name" class="form-control" size="50" placeholder="Chat room name" required>
-      <div class="input-group-btn">
-        <input id="room-name-submit"  type="button" class="btn btn-danger" value="Enter"/>
-      </div>
+
+
+    <!--search-->
+    <div class="container">
+        <h3 class="text-center">What chat room would you like to enter?</h3>
+        
+        <div class="input-group">
+            <input id="room-name-input" type="name" class="form-control" size="50" placeholder="Chat room name" required>
+            <div class="input-group-btn">
+                <input id="room-name-submit"  type="button" class="btn btn-danger" value="Enter"/>
+            </div>
+        </div>
     </div>
+
+
+    <!--chatrooms-->
+    <div class="container">
+        <h3 class="text-center">Chatrooms</h3>
+    
+        {% if room_list %}
+            <ul class="list-group"> 
+            {% for room in room_list %}
+                <li class="list-group-item"><a href="/chat/{{ room.id }}/">{{ room.room_text }}</a></li>
+            {% endfor %}  
+            </ul>
+        {% else %}
+            <p>No rooms are available.</p>
+        {% endif %}
     </div>
-    </div>
-</form>
+
+
+</div>
+
 
 
 <script>
