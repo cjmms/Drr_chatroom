@@ -135,6 +135,12 @@ STATICFILES_DIRS = [
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
 
+STATICFILES_FINDERS = (
+'django.contrib.staticfiles.finders.FileSystemFinder',
+'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+
 LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/chat/'    # once a user logged in, redirect the user to this route
 LOGOUT_REDIRECT_URL = 'login'
 
