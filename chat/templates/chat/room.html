@@ -11,11 +11,12 @@
     <input id="chat-message-submit" type="button" value="Send"/>
 </body>
 <script>
+
     var roomName = {{ room_name_json }};
 
     var user = "{{ user.get_username }}";
 
-
+    
     
 
     var chatSocket = new WebSocket(
