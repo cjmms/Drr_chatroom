@@ -33,5 +33,5 @@ pip3 install channels_redis
 Features plannig to add:
     1. Reset password
     2. Add Chatroom list in 'chat' root
-    3. Make chat message list uneditable and show user's infomation
+    3. Make chat message list uneditable and show user's infomation (finished)
     4. use background music
