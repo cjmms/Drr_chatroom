@@ -94,8 +94,8 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"> Your Account</a></li>
-        <li><a href="http://104.248.72.150:8080/index/login/"> Log out</a></li>
+        <li><a href="{% url 'password_reset' %}">reset password</a></li>
+        <li><a href="{% url 'logout' %}">logout</a></li>
       </ul>
     </div>
 </nav>

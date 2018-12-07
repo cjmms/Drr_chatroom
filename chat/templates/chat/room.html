@@ -2,16 +2,117 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Chat Room</title>
+   <meta charset="utf-8"> 
+   <title>chatroom index</title>
+   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+   <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <style>
+    #chat-log{
+        font-family:Courier;
+        resize: none;
+        font-size: 20px; 
+    }
+    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+        margin-bottom: 50px;
+        border-radius: 0;
+    }
+    
+    /* Remove the jumbotron's default bottom margin */ 
+    .jumbotron {
+        margin-bottom: 0;
+    }
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+        background-color: #f2f2f2;
+        padding: 25px;
+        resize: none;
+    }
+
+    .bg-1 {
+        background: #2d2d30;
+        color: #000000;
+        resize: none;
+    }
+    .bg-1 h3 {color: #fff;}
+    .bg-1 p {font-style: italic;}
+
+
+    .modal-header, h4, .close {
+        background-color: #333;
+        color: #fff !important;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .modal-header, .modal-body {
+        padding: 40px 50px;
+    }
+
+
+    /* Black buttons with extra padding and without rounded borders */
+.btn {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #f1f1f1;
+    border-radius: 0;
+    transition: .2s;
+}
+
+/* On hover, the color of .btn will transition to white with black text */
+.btn:hover, .btn:focus {
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #000;
+}
+
+    .modal-header, h4, .close {
+        background-color: #333;
+        color: #fff !important;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .modal-header, .modal-body {
+        padding: 40px 50px;
+    }
+  </style>
 </head>
+<body>
+
+    <style>
+        body { background-color: #2d2d30; }
+    </style>
+
+<div class="bg-1">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Drr</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'logout' %}">logout</a></li>
+      </ul>
+    </div>
+</nav>
+
 <body> 
-    <textarea id="chat-log" cols="100" rows="20" readonly=" readonly" resize: none></textarea><br/>
-    <input id="chat-message-input" type="text" size="100"/><br/>
-    <input id="chat-message-submit" type="button" value="Send"/>
+<div align = "center">
+    <textarea id="chat-log" resize: "none"  cols="105" rows="20" readonly="readonly"></textarea><br/>
+    <input id="chat-message-input" type="text" size="145"/>
+    <input class="btn" id="chat-message-submit" type="button" value="Send"/>
+</div>
 </body>
 <script>
-
     var roomName = {{ room_name_json }};
 
     var user = "{{ user.get_username }}";
@@ -55,7 +156,7 @@
         var messageInputDom = document.querySelector('#chat-message-input');
         var message = messageInputDom.value;
         chatSocket.send(JSON.stringify({
-            'message':  user + " " + "{% now "jS F Y H:i" %} :" +'\n\t' + message + '\n'
+            'message':  user + " " + "| {% now "jS F Y H:i" %}" +'\n\t' + message + '\n'
         }));
 
         messageInputDom.value = '';
