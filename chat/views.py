@@ -35,4 +35,3 @@ def create_room(request):
         return render(request, 'chat/index.html', context)
 
 
-
