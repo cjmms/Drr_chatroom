@@ -10,27 +10,67 @@
    <style>
     /* Remove the navbar's default rounded borders and increase the bottom margin */ 
     .navbar {
-      margin-bottom: 50px;
-      border-radius: 0;
+        margin-bottom: 50px;
+        border-radius: 0;
     }
     
     /* Remove the jumbotron's default bottom margin */ 
-     .jumbotron {
-      margin-bottom: 0;
+    .jumbotron {
+        margin-bottom: 0;
     }
    
     /* Add a gray background color and some padding to the footer */
     footer {
-      background-color: #f2f2f2;
-      padding: 25px;
+        background-color: #f2f2f2;
+        padding: 25px;
     }
 
     .bg-1 {
-    background: #2d2d30;
-    color: #bdbdbd;
+        background: #2d2d30;
+        color: #bdbdbd;
     }
     .bg-1 h3 {color: #fff;}
     .bg-1 p {font-style: italic;}
+
+
+    .modal-header, h4, .close {
+        background-color: #333;
+        color: #fff !important;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .modal-header, .modal-body {
+        padding: 40px 50px;
+    }
+
+
+    /* Black buttons with extra padding and without rounded borders */
+.btn {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #f1f1f1;
+    border-radius: 0;
+    transition: .2s;
+}
+
+/* On hover, the color of .btn will transition to white with black text */
+.btn:hover, .btn:focus {
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #000;
+}
+
+    .modal-header, h4, .close {
+        background-color: #333;
+        color: #fff !important;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .modal-header, .modal-body {
+        padding: 40px 50px;
+    }
   </style>
 </head>
 
@@ -43,22 +83,17 @@
 <div class="bg-1">
 
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Drr</a>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Drr</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"> Your Account</a></li>
+            <li><a href="http://127.0.0.1:8000/index/login/"> Log out</a></li>
+            </ul>
+        </div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"> Your Account</a></li>
-        <li><a href="http://127.0.0.1:8000/index/login/"> Log out</a></li>
-      </ul>
-    </div>
-  </div>
 </nav>
 
 
@@ -68,7 +103,7 @@
         <h3 class="text-center">What chat room would you like to enter?</h3>
         
         <div class="input-group">
-            <input id="room-name-input" type="name" class="form-control" size="50" placeholder="Chat room name" required>
+            <input id="room-name-input" type="name" class="form-control" size="40" placeholder="Chat room name" required>
             <div class="input-group-btn">
                 <input id="room-name-submit"  type="button" class="btn btn-danger" value="Enter"/>
             </div>
@@ -91,6 +126,47 @@
         {% endif %}
     </div>
 
+    <div class="text-center">
+        
+        <!-- Used to open the Modal -->
+        <button class="btn" data-toggle="modal" data-target="#myModal">Create Room</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4><span class="glyphicon glyphicon-lock"></span> New Room</h4>
+        </div>
+
+        <div class="modal-body">
+        <form action="create_room" method="post" role="form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="room_name"> Room Name</label>
+                <input type="text" class="form-control" id="room_name" placeholder="please enter name" name="room_name">
+            </div>
+            
+            <button type="submit" class="btn btn-block" >Create</button>
+        </form>
+        </div>
+
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+          <span class="glyphicon glyphicon-remove"></span> Cancel
+        </button>
+        <p>Need <a href="#">help?</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+
+
 
 </div>
 
@@ -108,7 +184,26 @@
             var roomName = document.querySelector('#room-name-input').value;
             window.location.pathname = '/chat/' + roomName + '/';
         };
-    </script>
+
+
+    
+function getSceneId(scece_name) {
+            
+    var data_dict = {'hello', 'csrfmiddlewaretoken': '{{ csrf_token }}'};    
+            $.ajax({
+                url: "http://127.0.0.1:8000/chat/",
+                type: "POST",
+                data: data_dict,
+                success: function (data) {
+                data = JSON.parse(data);
+                    
+                alert(data["result"]);
+                    
+                }
+            });
+        }
+
+</script>
 
 
 
