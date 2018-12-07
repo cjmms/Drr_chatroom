@@ -32,7 +32,8 @@ def signin(request):
         if user.is_active:
             login(request, user)
             # Redirect to a success page.
-            return render(request, 'chat/index.html', {})
+            return redirect('http://104.248.72.150:8080/chat/')
+           # return render(request, 'chat/', {})
         else:
             # Return a 'disabled account' error message
             print("fuck")
