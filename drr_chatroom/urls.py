@@ -19,6 +19,27 @@ from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import include, url
+from django.contrib.auth import login, authenticate
+from django.shortcuts import render, redirect
+
+
+def signin(request):
+    print("i am heer")
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        if user.is_active:
+            login(request, user)
+            # Redirect to a success page.
+            return render(request, 'chat/index.html', {})
+        else:
+            # Return a 'disabled account' error message
+            print("fuck")
+    else:
+        # Return an 'invalid login' error message.
+        print("fuck2")
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,7 +48,9 @@ urlpatterns = [
     path('test/',TemplateView.as_view(template_name='index.html'), name='test'),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('chat/', include('chat.urls')),
+    path('index/login/my_view', signin),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
