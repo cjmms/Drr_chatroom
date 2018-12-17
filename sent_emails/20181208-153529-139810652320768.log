@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 104.248.72.150:8080
+From: webmaster@localhost
+To: wang3695@purdue.edu
+Date: Sat, 08 Dec 2018 20:35:29 -0000
+Message-ID: <154430132945.19767.17947821729497753586@cs252lab6webapp>
+
+
+You're receiving this email because you requested a password reset for your user account at 104.248.72.150:8080.
+
+Please go to the following page and choose a new password:
+
+http://104.248.72.150:8080/index/reset/MQ/51y-21a19771330ec974aae6/
+
+Your username, in case you've forgotten: admin
+
+Thanks for using our site!
+
+The 104.248.72.150:8080 team
+
+
+
+-------------------------------------------------------------------------------
